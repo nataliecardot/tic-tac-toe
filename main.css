@@ -38,3 +38,24 @@ header h1 {
   /* 1st value horizontal, 2nd vertical */
   text-shadow: -4px 1px var(--primary);
 }
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  /* Will have elements inside that are absolute */
+  position: relative;
+  border: 1px solid var(--dark);
+  width: 100px;
+  /* percentage is based on width; will get 100% of the width; get a perfect square */
+  padding-top: 100%;
+}
