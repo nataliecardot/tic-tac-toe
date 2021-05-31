@@ -55,7 +55,7 @@ main {
   /* Will have elements inside that are absolute */
   position: relative;
   border: 1px solid var(--dark);
-  width: 100px;
+  width: 150px;
   /* percentage is based on width; will get 100% of the width; get a perfect square */
   padding-top: 100%;
 }
