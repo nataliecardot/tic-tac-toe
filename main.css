@@ -59,3 +59,31 @@ main {
   /* percentage is based on width; will get 100% of the width; get a perfect square */
   padding-top: 100%;
 }
+
+/* Remove top border */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+/* Remove left border */
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+/* Remove bottom border */
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+/* Remove right border */
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
