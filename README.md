@@ -1,3 +1,3 @@
-# tic-tac-toe
+# Tic Tac Toe
 
-Vanilla JS tic tac toe game.
+Vanilla JS tic-tac-toe game.
