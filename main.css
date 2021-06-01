@@ -88,8 +88,10 @@ main {
   border-right: none;
 }
 
+.cell.x::before,
 .cell.x::after,
-.cell.x::before {
+.board.turn-x .cell:not(.x):not(.o):hover::before,
+.board.turn-x .cell:not(.x):not(.o):hover::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -102,11 +104,13 @@ main {
 
 /* X positioning */
 
-.cell.x::before {
+.cell.x::before,
+.board.turn-x .cell:not(.x):not(.o):hover::before {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.cell.x::after {
+.cell.x::after,
+.board.turn-x .cell:not(.x):not(.o):hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
@@ -126,4 +130,9 @@ main {
 
 .cell.o::before {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.board.turn-x .cell:not(.x):not(.o):hover::after,
+.board.turn-x .cell:not(.x):not(.o):hover::before {
+  background: var(--grey);
 }
