@@ -41,11 +41,15 @@ function fillCell() {
     );
 
     if (restart) setup();
-  }
+  } else if (checkForDraw()) {
+    const restart = confirm("It's a draw! Play again?");
 
-  currentTurn = currentTurn == 'x' ? 'o' : 'x';
-  board.classList.remove('turn-o', 'turn-x');
-  board.classList.add('turn-' + currentTurn);
+    if (restart) setup();
+  } else {
+    currentTurn = currentTurn == 'x' ? 'o' : 'x';
+    board.classList.remove('turn-o', 'turn-x');
+    board.classList.add('turn-' + currentTurn);
+  }
 }
 
 function checkForWin() {
@@ -59,5 +63,13 @@ function checkForWin() {
 
       return false;
     });
+  });
+}
+
+function checkForDraw() {
+  // Using spread syntax to convert the array-like object NodeList for cells (returned by querySelectorAll property) into a regular array so every can be used. Could alternatively use Array.from()
+  return [...cells].every((c) => {
+    if (c.classList.contains('x') || c.classList.contains('o')) return true;
+    return false;
   });
 }
