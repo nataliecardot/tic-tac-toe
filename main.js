@@ -36,7 +36,11 @@ function fillCell() {
   this.classList.add(currentTurn);
 
   if (checkForWin()) {
-    // Winner!
+    const restart = confirm(
+      currentTurn.toUpperCase() + ' is the winner! Play again?'
+    );
+
+    if (restart) setup();
   }
 
   currentTurn = currentTurn == 'x' ? 'o' : 'x';
@@ -44,4 +48,16 @@ function fillCell() {
   board.classList.add('turn-' + currentTurn);
 }
 
-function checkForWin() {}
+function checkForWin() {
+  // Loop through combinations to check that at least one combination passes the test (true returned for every() method below)
+  return combinations.some((combination) => {
+    // Loop through each combination to check whether all three cell elements have currentTurn (x or 0) class
+    return combination.every((c) => {
+      if (cells[c].classList.contains(currentTurn)) {
+        return true;
+      }
+
+      return false;
+    });
+  });
+}
