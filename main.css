@@ -58,6 +58,7 @@ main {
   width: 150px;
   /* percentage is based on width; will get 100% of the width; get a perfect square */
   padding-top: 100%;
+  cursor: pointer;
 }
 
 /* Remove top border */
@@ -86,6 +87,11 @@ main {
 .cell:nth-child(6),
 .cell:nth-child(9) {
   border-right: none;
+}
+
+.cell.x,
+.cell.o {
+  cursor: not-allowed;
 }
 
 .cell.x::before,
