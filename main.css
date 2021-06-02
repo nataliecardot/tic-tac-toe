@@ -122,7 +122,8 @@ main {
 
 /* O positioning */
 
-.cell.o::before {
+.cell.o::before,
+.board.turn-o .cell:not(.x):not(.o):hover::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -141,4 +142,8 @@ main {
 .board.turn-x .cell:not(.x):not(.o):hover::after,
 .board.turn-x .cell:not(.x):not(.o):hover::before {
   background: var(--grey);
+}
+
+.board.turn-o .cell:not(.x):not(.o):hover::before {
+  border-color: var(--grey);
 }
