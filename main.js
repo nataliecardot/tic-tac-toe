@@ -1,5 +1,7 @@
 const board = document.querySelector('#board');
 const cells = document.querySelectorAll('.cell');
+const overlay = document.querySelector('.overlay');
+const overlayMsg = document.querySelector('.overlay p');
 // Winning combinations
 const combinations = [
   // Also checking for inverse order of these in checkForWin()
@@ -20,6 +22,8 @@ let currentTurn;
 setup();
 
 function setup() {
+  // TODO: comment in
+  overlay.style.display = 'none';
   board.classList.remove('turn-x', 'turn-o');
 
   for (let cell of cells) {
@@ -36,15 +40,11 @@ function fillCell() {
   this.classList.add(currentTurn);
 
   if (checkForWin()) {
-    const restart = confirm(
-      currentTurn.toUpperCase() + ' is the winner! Play again?'
-    );
-
-    if (restart) setup();
+    overlay.style.display = 'flex';
+    overlayMsg.innerText = currentTurn.toUpperCase() + ' is the winner!';
   } else if (checkForDraw()) {
-    const restart = confirm("It's a draw! Play again?");
-
-    if (restart) setup();
+    overlay.style.display = 'flex';
+    overlayMsg.innerText = "It's a draw!";
   } else {
     currentTurn = currentTurn == 'x' ? 'o' : 'x';
     board.classList.remove('turn-o', 'turn-x');

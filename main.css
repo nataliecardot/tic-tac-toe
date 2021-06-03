@@ -1,5 +1,5 @@
 :root {
-  --primary: #8a4fff;
+  --primary: #651fff;
   --dark: #131a26;
   --grey: #ccc;
   --light: #eee;
@@ -146,4 +146,40 @@ main {
 
 .board.turn-o .cell:not(.x):not(.o):hover::before {
   border-color: var(--grey);
+}
+
+.overlay {
+  border: 5px solid var(--primary);
+  min-height: 100vh;
+  width: 100%;
+  background: #e8eaf6;
+  /* fixed: element is removed from the normal document flow, and no space is created for the element in the page layout */
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay p {
+  font-size: 3rem;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.overlay button {
+  background: #000;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+  border-bottom: 5px solid var(--primary);
+}
+
+.overlay button:hover {
+  transform: scale(0.9);
 }
