@@ -43,7 +43,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 0;
+  /* sets flex-grow to 1 (whereas the default value is 0) - see explanation here https://stackoverflow.com/a/66449233/8888320 */
+  flex: 1;
 }
 
 .board {
